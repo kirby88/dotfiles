@@ -39,56 +39,37 @@ if (has("termguicolors"))
 endif
 
 " Status line
-let g:currentmode={
-      \ 'n'  : 'N ',
-      \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'V ',
-      \ 'V'  : 'V·Line ',
-      \ 'x22' : 'V·Block ',
-      \ 's'  : 'Select ',
-      \ 'S'  : 'S·Line ',
-      \ 'x19' : 'S·Block ',
-      \ 'i'  : 'I ',
-      \ 'R'  : 'R ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
-      \ 'cv' : 'Vim Ex ',
-      \ 'ce' : 'Ex ',
-      \ 'r'  : 'Prompt ',
-      \ 'rm' : 'More ',
-      \ 'r?' : 'Confirm ',
-      \ '!'  : 'Shell ',
-      \ 't'  : 'Terminal '
-      \}
 
 set laststatus=2 " Show the status at the bottom (filename). 2 means always show it
 set statusline=
-set statusline+=%0*\ [%n]
-set statusline+=%0*\ %<%.30F%m%r%h%w\  " File path up to 30 chars, modified, readonly, helpfile, preview
-set statusline+=%0*\ [%{''.(&fenc!=''?&fenc:&enc).''}]
-set statusline+=%0*\ st_mtim
-set statusline+=%0*\ %{strftime('%b\ %d,\ %Y\ -\ %H:%M:%S',getftime(expand('%')))}
-set statusline+=,
-set statusline+=%0*\ st_size
-set statusline+=%0*\ %{getfsize(expand('%'))}\ bytes
-set statusline+=%=
-set statusline+=%0*\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " The current mode
+set statusline+=\ [%n]\ |
 
-" status bar colors
-au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=red ctermbg=black
-au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=white ctermbg=black
-hi statusline guifg=black guibg=#8fbfdc ctermfg=white ctermbg=black
+set statusline+=%#NormalColor#%{(mode()=='n')?'\ NORMAL\ ':''}
+set statusline+=%#InsertColor#%{(mode()=='i')?'\ INSERT\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ REPLACE\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'\ VISUAL\ ':''}
+
+set statusline+=%0*
+set statusline+=\ %<%.30F%m%r%h%w\  " File path up to 30 chars, modified, readonly, helpfile, preview
+set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}]\ |
+set statusline+=%#BaseColor#
+set statusline+=\ st_mtim\ |
+set statusline+=%0*
+set statusline+=\ %{strftime('%b\ %d,\ %Y\ -\ %H:%M:%S',getftime(expand('%')))}\ |
+set statusline+=%#BaseColor#
+set statusline+=\ st_size\ |
+set statusline+=%0*
+set statusline+=\ %{getfsize(expand('%'))}\ bytes
+set statusline+=%=
+set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
+
+hi NormalColor guifg=Black guibg=#8fbfdc ctermbg=DarkBlue ctermfg=White
+hi InsertColor guifg=Black guibg=#d7afff ctermbg=Red ctermfg=White
+hi ReplaceColor guifg=Black guibg=maroon1 ctermbg=165 ctermfg=0
+hi VisualColor guifg=Black guibg=Orange ctermbg=202 ctermfg=0
+hi BaseColor guifg=Black guibg=#8fbfdc ctermbg=DarkGray ctermfg=White
 
 " enable setting title
 set title
 " configure title to look like: Vim /path/to/file
 set titlestring=\ %-25.55F\ %a%r%m
-
-" NERDTree
-" let NERDTreeMirror=1 " Mirror on every tabs
-" silent! nmap <C-p> :NERDTreeToggle<CR> " ctrl+p tot toggle
-" Close NERDtree when quiting vim
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" let NERDTreeMinimalUI = 1
-" let NERDTreeShowBookmarks=1
