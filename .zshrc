@@ -1,6 +1,5 @@
 
 export CLICOLORS=1;
-# Customize editor for mecurial
 export EDITOR=vim
 
 start=0
@@ -34,13 +33,12 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # Basic
 alias ls='ls -G'
 alias ll='ls -alsG'
+alias cd..='cd ..'
 alias epoch='date "+%s"'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
 alias ssh1='ssh devvm2167.lla0.facebook.com'
-alias bb='buck build'
-alias bt='buck test'
 alias ap='arc pull'
 alias jfs='jf submit --draft'
 alias jfss='jf submit --draft --stack'
@@ -54,7 +52,12 @@ alias hgco='hg checkout'
 alias hgd='hg diff'
 alias hgtop='hg next --top'
 alias hgbutt='hg prev --bottom'
-# Git
+## Git
 git config --global alias.st status
-
+## FZF
+FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
+export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
