@@ -33,5 +33,6 @@ brewInstall moreutils # utils for mac https://rentes.github.io/unix/utilities/20
 brewInstall fd # Much faster than Find, useful for fzf https://github.com/sharkdp/fd
 brewInstall tree # https://michaelsoolee.com/tree-tool/
 brewInstall ripgrep # Blazing fast grep
+brew install pv # Pipe viewer
 
 $(brew --prefix)/opt/fzf/install # Fzf needs an extra step for the installation, interactive
