@@ -58,3 +58,4 @@ alias hgbutt='hg prev --bottom'
 git config --global alias.st status
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
