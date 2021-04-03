@@ -10,14 +10,14 @@ precmd() {
     PROMPT=""
     else
     end=$(date "+%s")
-    PROMPT="%(?.%F{green}√.%K{red}×) $((end-start))s. %(?.%f.| Exit code: %?%k)"$'\n'
+    PROMPT="%F{white}%(?.%K{green} √.%K{red} ×) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
   fi
-  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{white}$%f "
+  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%B$%b "
 }
 preexec () {
   start=$(date "+%s")
 }
-RPROMPT='%W %*'
+# RPROMPT='%W %*' # Display date and time on the right
 
 # Directory stack cf. https://thevaluable.dev/zsh-install-configure/
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
@@ -35,6 +35,7 @@ alias ls='ls -G'
 alias ll='ls -alsG'
 alias cd..='cd ..'
 alias epoch='date "+%s"'
+alias stree='tree -alL 2 -I ".git|.hg" --filelimit 10'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
