@@ -32,7 +32,7 @@ noremap <Right> <Nop>
 " Theme and Styling
 set t_Co=256
 set background=light
-colorscheme desert
+colorscheme solarized 
 
 if (has("termguicolors"))
     set termguicolors
