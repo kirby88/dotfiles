@@ -12,7 +12,7 @@ precmd() {
     end=$(date "+%s")
     PROMPT="%F{white}%(?.%K{green} √.%K{red} ×) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
   fi
-  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%B$%b "
+  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{black}%B$%b%f "
 }
 preexec () {
   start=$(date "+%s")
@@ -31,10 +31,11 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # source .completion.zsh
 
 # Basic
+alias v='vim'
 alias ls='ls -G'
 alias ll='ls -alsG'
 alias cd..='cd ..'
-alias epoch='date "+%s"'
+alias t='date "+%s"'
 alias stree='tree -alL 2 -I ".git|.hg" --filelimit 10'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
@@ -57,6 +58,8 @@ alias hgtop='hg next --top'
 alias hgbutt='hg prev --bottom'
 ## Git
 git config --global alias.st status
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
 ## FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
