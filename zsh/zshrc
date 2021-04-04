@@ -36,7 +36,7 @@ alias ls='ls -G'
 alias ll='ls -alsG'
 alias cd..='cd ..'
 alias t='date "+%s"'
-alias stree='tree -alL 2 -I ".git|.hg" --filelimit 10'
+alias stree='tree -alL 2 -I ".git|.hg|.DS_Store" --filelimit 10'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'

@@ -55,17 +55,19 @@ set statusline+=%#NormalColor#%{(mode()=='n')?'\ NORMAL\ ':''}
 set statusline+=%#InsertColor#%{(mode()=='i')?'\ INSERT\ ':''}
 set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ REPLACE\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ VISUAL\ ':''}
+set statusline+=%#PathColor#
+set statusline+=\ %<%.50F%m%r%h%w 
+set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}]\  
 set statusline+=%#BaseColor#
-set statusline+=\ %<%.50F%m%r%h%w
-set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}]\ |
-set statusline+=-\ %{getfsize(expand('%'))}\ bytes " File name up to 30 chars, modified, readonly, helpfile, preview
+set statusline+=\ %{getfsize(expand('%'))}\ bytes " File name up to 30 chars, modified, readonly, helpfile, preview
 "set statusline+=\ %{strftime('%b\ %d,\ %Y\ -\ %H:%M:%S',getftime(expand('%')))}\ | " Last modification time
 set statusline+=%=
 set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
 
-hi NormalColor guifg=Black guibg=#8fbfdc ctermbg=DarkBlue ctermfg=White
-hi BaseColor guifg=Black guibg=#8fbfdc ctermbg=DarkGrey ctermfg=White
-hi InsertColor guifg=Black guibg=#d7afff ctermbg=Red ctermfg=White
-hi ReplaceColor guifg=Black guibg=maroon1 ctermbg=Yellow ctermfg=0
-hi VisualColor guifg=Black guibg=Orange ctermbg=DarkGreen ctermfg=0
+hi NormalColor ctermbg=DarkBlue ctermfg=White cterm=bold
+hi PathColor ctermbg=Grey ctermfg=White
+hi BaseColor ctermbg=DarkGrey ctermfg=White
+hi InsertColor ctermbg=DarkRed ctermfg=White cterm=bold
+hi ReplaceColor ctermbg=DarkRed ctermfg=White cterm=bold
+hi VisualColor ctermbg=DarkGreen ctermfg=White cterm=bold
 
