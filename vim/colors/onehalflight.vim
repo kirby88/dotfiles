@@ -19,8 +19,11 @@ let colors_name="onehalflight"
 
 let s:black       = { "gui": "#383a42", "cterm": "234" }
 let s:red         = { "gui": "#e45649", "cterm": "160" }
+let s:light_red   = { "gui": "#e45649", "cterm": "217" }
 let s:green       = { "gui": "#50a14f", "cterm": "34" }
+let s:light_green = { "gui": "#50a14f", "cterm": "194" }
 let s:yellow      = { "gui": "#c18401", "cterm": "136" }
+let s:light_yellow= { "gui": "#c18401", "cterm": "230" }
 let s:blue        = { "gui": "#0184bc", "cterm": "33" }
 let s:purple      = { "gui": "#a626a4", "cterm": "127" }
 let s:cyan        = { "gui": "#0997b3", "cterm": "31" }
@@ -70,9 +73,9 @@ call s:h("CursorLine", "", s:cursor_line, "")
 call s:h("LineNr", s:cyan, s:gutter_bg, "")
 call s:h("CursorLineNr", s:gutter_bg, s:cyan, "")
 
-call s:h("DiffAdd", s:green, "", "")
-call s:h("DiffChange", s:yellow, "", "")
-call s:h("DiffDelete", s:red, "", "")
+call s:h("DiffAdd", "", s:light_green, "")
+call s:h("DiffChange", "", s:light_yellow, "")
+call s:h("DiffDelete", "", s:light_red, "")
 call s:h("DiffText", s:blue, "", "")
 
 call s:h("IncSearch", s:bg, s:yellow, "")
