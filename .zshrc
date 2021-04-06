@@ -42,7 +42,7 @@ alias ssh1='ssh devvm2167.lla0.facebook.com'
 alias ap='arc pull'
 alias jfs='jf submit --draft'
 alias jfss='jf submit --draft --stack'
-alias lint='arc lint -e fbsource'
+alias lint='arc lint -e extra --take DEPS'
 # Mercurial
 alias hgst='hg status'
 alias hgsl='hg sl'
