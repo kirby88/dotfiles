@@ -30,6 +30,7 @@ brewInstall gnu-sed # SED for mac, As original sed add a newline at the end of f
 brewInstall fzf # Fuzzy search https://github.com/junegunn/fzf
 brewInstall bat # Previsualization for terminal https://github.com/sharkdp/bat
 brewInstall moreutils # utils for mac https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
+brewInstall cowsay # cowsay for mac
 brewInstall fd # Much faster than Find, useful for fzf https://github.com/sharkdp/fd
 brewInstall tree # https://michaelsoolee.com/tree-tool/
 brewInstall ripgrep # Blazing fast grep
