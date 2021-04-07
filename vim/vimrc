@@ -29,6 +29,7 @@ set encoding=utf8 " Set text encoding as utf8
 set title " enable setting title
 set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
 set ignorecase " ignore case when searching. :set noignore to disable
+set scrolloff=10 " start scrolling x lines before edge of viewport 
 
 " Remap arrow keys
 noremap <Up> <Nop>
