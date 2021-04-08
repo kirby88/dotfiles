@@ -24,7 +24,7 @@ set smartcase " When searching (/), automatically switch to a case-sensitive sea
 set shortmess-=S " Zhen searchinf (/) show nb of results for the search
 set ttyfast " Boost speed by altering character redraw rates to your terminal
 set encoding=utf8 " Set text encoding as utf8
-" set listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
 " set list
 set title " enable setting title
 set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
