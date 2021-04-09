@@ -24,18 +24,26 @@ set smartcase " When searching (/), automatically switch to a case-sensitive sea
 set shortmess-=S " Zhen searchinf (/) show nb of results for the search
 set ttyfast " Boost speed by altering character redraw rates to your terminal
 set encoding=utf8 " Set text encoding as utf8
-" set listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
 " set list
 set title " enable setting title
 set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
 set ignorecase " ignore case when searching. :set noignore to disable
 set scrolloff=10 " start scrolling x lines before edge of viewport 
+set tabstop=2 " Use 2 spaces instead of tabs
+set shiftwidth=2 " when indenting with '>', use 2 spaces width
+set expandtab " On pressing tab insert 2 spaces
 
 " Remap arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Remap
+let mapleader = "\<space>"
+nnoremap <Leader>o o<Esc>0"_D " Insert a new line and remove unwanted white space
+nnoremap <Leader>O O<Esc>0"_D " Same, but insert before 
 
 " Theme and Styling
 set t_Co=256
