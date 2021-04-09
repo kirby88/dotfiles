@@ -1,4 +1,11 @@
 {
+  "Ansi 5 Color" : {
+    "Red Component" : 0.65098039215699999,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.64313725490200002,
+    "Alpha Component" : 1,
+    "Green Component" : 0.149019607843
+  },
   "Working Directory" : "\/Users\/jul",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -16,7 +23,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.75294117647100001
   },
-  "Use Italic Font" : true,
+  "Use Italic Font" : false,
   "Foreground Color" : {
     "Red Component" : 0.21960784313699999,
     "Color Space" : "sRGB",
@@ -55,6 +62,7 @@
     "telnet"
   ],
   "Scrollback Lines" : 0,
+  "Draw Powerline Glyphs" : false,
   "Status Bar Layout" : {
     "components" : [
       {
@@ -83,6 +91,7 @@
           "knobs" : {
             "base: compression resistance" : 1,
             "base: priority" : 5,
+            "minwidth" : 0,
             "shared text color" : {
               "Red Component" : 0.84599999999999997,
               "Color Space" : "sRGB",
@@ -90,7 +99,6 @@
               "Alpha Component" : 1,
               "Green Component" : 0.90000000000000002
             },
-            "minwidth" : 0,
             "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
@@ -477,6 +485,7 @@
   "Horizontal Spacing" : 1,
   "Option Key Sends" : 0,
   "Only The Default BG Color Uses Transparency" : true,
+  "Blink Allowed" : false,
   "Minimum Contrast" : 0,
   "Ansi 15 Color" : {
     "Red Component" : 1,
@@ -516,12 +525,6 @@
   "Columns" : 80,
   "Visual Bell" : true,
   "ASCII Ligatures" : false,
-  "Custom Directory" : "No",
-  "Ansi 5 Color" : {
-    "Red Component" : 0.65098039215699999,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.64313725490200002,
-    "Alpha Component" : 1,
-    "Green Component" : 0.149019607843
-  }
+  "Thin Strokes" : 0,
+  "Custom Directory" : "No"
 }
