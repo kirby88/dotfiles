@@ -34,6 +34,14 @@ set tabstop=2 " Use 2 spaces instead of tabs
 set shiftwidth=2 " when indenting with '>', use 2 spaces width
 set expandtab " On pressing tab insert 2 spaces
 " set scrollbind " When 2 windows are open, scroll is syncrhonized. :set noscrollbind to disable
+set splitbelow " When opening a pane vertically, opening it below
+set splitright " When opening a pane horizontally, opening it on the right
+
+" Autocompletion
+set wildmenu " Allow autocompletion without plugin
+set wildmode=longest:full,full " Type of autocomplete close to fzf. :help wildmode
+set wildignorecase " Ignore case for autocomplete
+set wildignore=.git/,.DS_Store,.xcodeproj
 
 " Remap arrow keys
 noremap <up> <nop>
@@ -43,9 +51,11 @@ noremap <right> <nop>
 
 " Remap
 let mapleader = "\<space>"
-nnoremap <leader>o o<esc>0"_D " Insert a new line and remove unwanted white space
-nnoremap <leader>O O<esc>0"_D " Same, but insert before 
-
+nnoremap <leader>o o<Esc>0"_D " Insert a new line and remove unwanted white space
+nnoremap <leader>O O<Esc>0"_D " Same, but insert before 
+nnoremap <leader>e :edit **/*
+nnoremap <leader>r :source $MYVIMRC<cr>
+  
 " Theme and Styling
 set t_Co=256
 if exists('+termguicolors')
