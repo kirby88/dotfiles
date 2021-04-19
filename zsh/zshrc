@@ -1,5 +1,9 @@
 export CLICOLORS=1;
 export EDITOR=vim
+export VISUAL=vim
+
+# Send to tmux the ctrl+a ctrl+e keys
+bindkey -e
 
 ## Source machine specific code
 source ~/.zshrc_local
@@ -44,6 +48,7 @@ alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
 alias ssh1='ssh devvm2167.lla0.facebook.com'
 alias ap='arc pull'
+alias as='arc sanity'
 alias jfs='jf submit --draft'
 alias jfss='jf submit --draft --stack'
 alias lint='arc lint -e extra --take DEPS'
