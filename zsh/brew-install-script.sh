@@ -20,10 +20,10 @@ echo "**** Installing brew cask..." # UI installation that brew doesn't natively
 
 # Software
 echo "**** Installing Firefox"
-brewCaskInstall firefox
-brewCaskInstall iterm2
-brewCaskInstall zettlr
-brewCaskInstall macdown
+#brewCaskInstall firefox
+#brewCaskInstall iterm2
+#brewCaskInstall zettlr
+#brewCaskInstall macdown
 
 # Dev tools
 brewInstall gnu-sed # SED for mac, As original sed add a newline at the end of files https://www.gnu.org/software/sed/
@@ -35,5 +35,7 @@ brewInstall fd # Much faster than Find, useful for fzf https://github.com/sharkd
 brewInstall tree # https://michaelsoolee.com/tree-tool/
 brewInstall ripgrep # Blazing fast grep
 brew install pv # Pipe viewer
+
+brewInstall jupyter
 
 $(brew --prefix)/opt/fzf/install # Fzf needs an extra step for the installation, interactive

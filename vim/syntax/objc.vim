@@ -1,9 +1,0 @@
-hi def link objcObjDef			    cType
-hi def link objcProtocol			    cType
-hi def link objcProperty			    cType
-hi def link objcIvarScope			    cType
-hi def link objcInternalRep			    cType
-hi def link objcException			    cType
-hi def link objcThread			    cType
-hi def link objcPool			    cType
-hi def link objcModuleImport                cType
