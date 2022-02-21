@@ -34,7 +34,8 @@ brewInstall cowsay # cowsay for mac
 brewInstall fd # Much faster than Find, useful for fzf https://github.com/sharkdp/fd
 brewInstall tree # https://michaelsoolee.com/tree-tool/
 brewInstall ripgrep # Blazing fast grep
-brew install pv # Pipe viewer
+brewInstall pv # Pipe viewer
+brewInstall tmux # tmux https://github.com/tmux/tmux/wiki 
 
 brewInstall jupyter
 
