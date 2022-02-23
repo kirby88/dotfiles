@@ -8,11 +8,12 @@ set nocompatible
 syntax on
 filetype plugin indent on " Enable filetype, plugin and indentatio at once.
 
+set backspace=eol " HARD MODE: only delete what was inserted in this session 
+
 " Editor configuration
 set number " Show current line number
 set relativenumber " Show relative numbers for other line
 set colorcolumn=80 " Set the column 120 in red
-set nowrap " Lines extend without being wrapped
 set cursorline " Enable highlighting of the current line
 set cursorcolumn " Enable highlighting of the current line
 set showmatch " Highlight matching brace
@@ -22,21 +23,30 @@ set hlsearch " When searching (/), highlights matches as you go
 set incsearch " When searching (/), display results as you type (instead of only upon ENTER)
 set smartcase " When searching (/), automatically switch to a case-sensitive search if you use any capital letters
 set shortmess-=S " When searching (/) show nb of results for the search
+set noswapfile " Don't create swap file
 set ttyfast " Boost speed by altering character redraw rates to your terminal
 set encoding=utf8 " Set text encoding as utf8
-set listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
-" set list
+"set listchars=tab:_ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set list " Show all listchars
+set showbreak=↳\
+set breakindent " Will break line and keep indentation
+set wrap " Line will be broken of too long
 set title " enable setting title
 set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
 set ignorecase " ignore case when searching. :set noignore to disable
 set scrolloff=7 " start scrolling x lines before edge of viewport 
-set tabstop=2 " Use 2 spaces instead of tabs
-set shiftwidth=2 " when indenting with '>', use 2 spaces width
+set tabstop=4 " Use 4 spaces instead of tabs
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set softtabstop=4 " Tab look like they are 4 spaces
 set expandtab " On pressing tab insert 2 spaces
 " set scrollbind " When 2 windows are open, scroll is syncrhonized. :set noscrollbind to disable
 set splitbelow " When opening a pane vertically, opening it below
 set splitright " When opening a pane horizontally, opening it on the right
+" set autowriteall " Auto save a buffer when it's closed
 
+" Navigation
+set path+=** " Search recursively under the current directory
 " Autocompletion
 set wildmenu " Allow autocompletion without plugin
 set wildmode=longest:full,full " Type of autocomplete close to fzf. :help wildmode
@@ -64,8 +74,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set background=light
-colorscheme onehalflight
+" colorscheme onehalflight
+colorscheme onehalfdark
 
 " Status line
 set laststatus=2 " Show the status at the bottom (filename). 2 means always show it
@@ -77,17 +87,28 @@ set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ REPLACE\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ VISUAL\ ':''}
 set statusline+=%#PathColor#
 set statusline+=\ %<%.50F%m%r%h%w 
-set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}]\  
-set statusline+=%#BaseColor#
-set statusline+=\ %{getfsize(expand('%'))}\ bytes " File name up to 30 chars, modified, readonly, helpfile, preview
-"set statusline+=\ %{strftime('%b\ %d,\ %Y\ -\ %H:%M:%S',getftime(expand('%')))}\ | " Last modification time
+set statusline+=\ [
+set statusline+=Type=%Y 
+set statusline+=,%{''.(&fenc!=''?&fenc:&enc).''} 
+set statusline+=,Size=%{getfsize(expand('%'))} " File name up to 30 chars, modified, readonly, helpfile, preview
+set statusline+=,LastModif=%{strftime('%d/%m/%Y\ %H:%M:%S',getftime(expand('%')))} " Last modification time
+set statusline+=] 
 set statusline+=%=
-set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
+set statusline+=%#BaseColor#
+"set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
+set statusline+=\ Cursor\ @\ %03c,%l/%L\ -\ (%p%%)
+set statusline+=\ [
+set statusline+=Hex=0x%02.2B 
+set statusline+=,ASCII=%03.3b 
+set statusline+=] 
 
-hi NormalColor ctermbg=DarkBlue ctermfg=White cterm=bold
-hi PathColor ctermbg=Grey ctermfg=White
-hi BaseColor ctermbg=DarkGrey ctermfg=White
-hi InsertColor ctermbg=DarkRed ctermfg=White cterm=bold
-hi ReplaceColor ctermbg=DarkRed ctermfg=White cterm=bold
-hi VisualColor ctermbg=DarkGreen ctermfg=White cterm=bold
+
+hi NormalColor ctermbg=Blue ctermfg=Black cterm=bold
+hi PathColor ctermbg=Grey ctermfg=Black
+hi BaseColor ctermbg=Black ctermfg=White
+hi InsertColor ctermbg=Green ctermfg=Black cterm=bold
+hi ReplaceColor ctermbg=Red ctermfg=Black cterm=bold
+hi VisualColor ctermbg=Red ctermfg=Black cterm=bold
+hi LastColor ctermbg=Black ctermfg=Blue cterm=bold
+hi Error ctermfg=Red guifg=Red
 

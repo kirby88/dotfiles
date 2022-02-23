@@ -6,19 +6,22 @@ export VISUAL=vim
 bindkey -e
 
 ## Source machine specific code
-source ~/.zshrc_local
+if [[ -f ~/.zshrc_local ]]
+then
+    source ~/.zshrc_local
+fi
 
 start=0
 precmd() {
   if [ $start -eq 0 ]
     then
-    echo "\n## Welcome! ##\n"
+    echo "\n\n##############\n## Welcome ##\n#############\n\n"
     PROMPT=""
     else
     end=$(date "+%s")
-    PROMPT="%F{white}%(?.%K{green} √.%K{red} ×) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
+    PROMPT="%F{black}%(?.%K{green} √.%K{red} ×) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
   fi
-  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{black}%B$%b%f "
+  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
 }
 preexec () {
   start=$(date "+%s")
@@ -43,6 +46,8 @@ alias ll='ls -alsG'
 alias ls='ls -G'
 alias cd..='cd ..'
 alias stree='tree -alL 2 -I ".git|.hg|.DS_Store" --filelimit 10'
+alias py='python3'
+alias pyi='python3 -i'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
