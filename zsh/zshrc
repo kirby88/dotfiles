@@ -4,6 +4,7 @@ export VISUAL=vim
 
 # Send to tmux the ctrl+a ctrl+e keys
 bindkey -e
+bindkey -v
 
 ## Source machine specific code
 if [[ -f ~/.zshrc_local ]]
