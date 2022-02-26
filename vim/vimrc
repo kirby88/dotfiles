@@ -106,7 +106,6 @@ nnoremap <leader>= :wincmd =<cr>
 " cf. https://vim.fandom.com/wiki/Avoid_the_escape_key#Tab_key_under_Mac_OS_X
 vnoremap <Tab> <Esc>gV
 onoremap <Tab> <Esc>
-cnoremap <Tab> <C-C><Esc>
 inoremap <Tab> <Esc>`^
 inoremap <Leader><Tab> <Tab>
 
