@@ -87,14 +87,28 @@ let mapleader = "\<space>"
 nnoremap <leader>e :edit **/*
 nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leader>l :set list!<cr>
-nnoremap <leader>s :w<cr>
-nnoremap <leader>q :q<cr>
+"nnoremap <leader>s :w<cr>
+"nnoremap <leader>q :q<cr>
 nnoremap <leader>1 :b1<cr>
 nnoremap <leader>2 :b2<cr>
 nnoremap <leader>3 :b3<cr>
 nnoremap <leader>4 :b4<cr>
 nnoremap <leader>5 :b5<cr>
+nnoremap <leader>6 :b6<cr>
+nnoremap <leader>7 :b7<cr>
+nnoremap <leader>8 :b8<cr>
+nnoremap <leader>9 :b9<cr>
 nnoremap <leader>w <c-w>
+" Command to zoom in one pane in vim and back
+nnoremap <leader>~ :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+" Remap Tab to ESC, but not in normal mode to allow ctrl-o and ctrl-i
+" cf. https://vim.fandom.com/wiki/Avoid_the_escape_key#Tab_key_under_Mac_OS_X
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+cnoremap <Tab> <C-C><Esc>
+inoremap <Tab> <Esc>`^
+inoremap <Leader><Tab> <Tab>
 
 " Theme and Styling
 set t_Co=256
@@ -140,4 +154,7 @@ hi ReplaceColor ctermbg=Red ctermfg=Black cterm=bold
 hi VisualColor ctermbg=Red ctermfg=Black cterm=bold
 hi LastColor ctermbg=Black ctermfg=Blue cterm=bold
 hi Error ctermfg=Red guifg=Red
+
+" Resize vim when the window is resized
+autocmd VimResized * :wincmd =
 
