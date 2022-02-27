@@ -76,6 +76,9 @@ set wildmode=longest:full,full " Type of autocomplete close to fzf. :help wildmo
 set wildignorecase " Ignore case for autocomplete
 set wildignore=.git/,.DS_Store,.xcodeproj
 
+" use fzf
+set rtp+=/opt/homebrew/opt/fzf
+
 " Remap arrow keys
 noremap <up> <nop>
 noremap <down> <nop>
@@ -87,6 +90,7 @@ let mapleader = "\<space>"
 nnoremap <leader>e :edit **/*
 nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leader>l :set list!<cr>
+nnoremap <leader>f :FZF<cr>
 "nnoremap <leader>s :w<cr>
 "nnoremap <leader>q :q<cr>
 nnoremap <leader>1 :b1<cr>

@@ -2,10 +2,6 @@ export CLICOLORS=1;
 export EDITOR=vim
 export VISUAL=vim
 
-# Send to tmux the ctrl+a ctrl+e keys
-bindkey -e
-bindkey -v
-
 ## Source machine specific code
 if [[ -f ~/.zshrc_local ]]
 then
@@ -33,7 +29,6 @@ preexec () {
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # Autocompletion
 autoload -Uz compinit; compinit
@@ -41,14 +36,17 @@ _comp_options+=(globdots) # With hidden files
 
 # Basic
 alias v='vim'
-alias b='bat --style=numbers --color=always --theme=OneHalfLight'
-alias t='date "+%s"'
+alias b='bat --style=numbers --color=always --theme=OneHalfDark'
+alias t='tmux'
+alias ts='date "+%s"'
 alias ll='ls -alsG'
 alias ls='ls -G'
 alias cd..='cd ..'
 alias stree='tree -alL 2 -I ".git|.hg|.DS_Store" --filelimit 10'
 alias py='python3'
 alias pyi='python3 -i'
+alias d='dirs -v'
+alias so='source ~/.zshrc'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
@@ -75,10 +73,10 @@ git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
 ## FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules "
-export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --pointer · --color light \
-	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always --theme=OneHalfLight {} || cat {}) 2> /dev/null | head -300'\
+export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --pointer · --color dark\
+	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always --theme=OneHalfDark {} || cat {}) 2> /dev/null | head -300'\
 	--preview-window='right:hidden:wrap' \
-	--bind='f3:execute(bat --style=numbers --color=always --theme=OneHalfLight {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
+	--bind='f3:execute(bat --style=numbers --color=always --theme=OneHalfDark {} || less -f {}),ctrl-b:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd --type f $FD_OPTIONS -E '*.xcodeproj' -E '*.appiconset' -E '*.localized' $FZF_CTRL_T_COMMAND_DIRECTORIES"
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
