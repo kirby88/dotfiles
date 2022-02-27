@@ -103,8 +103,12 @@ nnoremap <leader>7 :b7<cr>
 nnoremap <leader>8 :b8<cr>
 nnoremap <leader>9 :b9<cr>
 nnoremap <leader>w <c-w>
+" The 3 after are shortcut that can be achieved with <leader>w
+nnoremap <leader>v <c-w>v
+nnoremap <leader>s <c-w>s
+nnoremap <leader>x <c-w>q
 " Command to zoom in one pane in vim and back
-nnoremap <leader>~ :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>+ :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 " Remap Tab to ESC, but not in normal mode to allow ctrl-o and ctrl-i
 " cf. https://vim.fandom.com/wiki/Avoid_the_escape_key#Tab_key_under_Mac_OS_X
