@@ -105,7 +105,8 @@ nnoremap <leader>8 :b8<cr>
 nnoremap <leader>9 :b9<cr>
 nnoremap <leader>w <c-w>
 " Omnifunc
-inoremap <leader>a <c-x><c-o>
+inoremap <c-a> <c-x><c-o>
+inoremap <c-f> <c-x><c-f>
 
 " The 3 after are shortcut that can be achieved with <leader>w
 nnoremap <leader>v <c-w>v
@@ -116,10 +117,11 @@ nnoremap <leader>+ :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 " Remap Tab to ESC, but not in normal mode to allow ctrl-o and ctrl-i
 " cf. https://vim.fandom.com/wiki/Avoid_the_escape_key#Tab_key_under_Mac_OS_X
+nnoremap <Tab> <Esc>
 vnoremap <Tab> <Esc>gV
 onoremap <Tab> <Esc>
 inoremap <Tab> <Esc>`^
-inoremap <Leader><Tab> <Tab>
+inoremap <c-t> <Tab>
 
 " Theme and Styling
 set t_Co=256
