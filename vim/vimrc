@@ -7,6 +7,7 @@ set nocompatible
 
 syntax on
 filetype plugin indent on " Enable filetype, plugin and indentatio at once.
+set omnifunc=syntaxcomplete#Complete
 
 set backspace=eol " HARD MODE: only delete what was inserted in this session 
 
@@ -67,7 +68,7 @@ set complete+=kspell
 set completeopt=menuone,longest
 set undodir=/tmp
 set undofile " Undo is stored in a file so it can be restored after closing vim
-
+set spell
 " Navigation
 set path+=** " Search recursively under the current directory
 " Autocompletion
@@ -103,6 +104,9 @@ nnoremap <leader>7 :b7<cr>
 nnoremap <leader>8 :b8<cr>
 nnoremap <leader>9 :b9<cr>
 nnoremap <leader>w <c-w>
+" Omnifunc
+inoremap <leader>a <c-x><c-o>
+
 " The 3 after are shortcut that can be achieved with <leader>w
 nnoremap <leader>v <c-w>v
 nnoremap <leader>s <c-w>s
