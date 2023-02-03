@@ -9,7 +9,7 @@ syntax on
 filetype plugin indent on " Enable filetype, plugin and indentatio at once.
 set omnifunc=syntaxcomplete#Complete
 
-set backspace=eol " HARD MODE: only delete what was inserted in this session 
+set backspace=eol " HARD MODE: only delete what was inserted in this session
 
 " Use a line cursor within insert mode and a block cursor everywhere else.
 "
@@ -45,7 +45,8 @@ set noswapfile " Don't create swap file
 set ttyfast " Boost speed by altering character redraw rates to your terminal
 set encoding=utf8 " Set text encoding as utf8
 "set listchars=tab:_ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
-set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+"set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶ " Set some nice character listings, then activate list
 set list " Show all listchars
 set showbreak=↳\
 set breakindent " Will break line and keep indentation
@@ -53,11 +54,11 @@ set wrap " Line will be broken of too long
 set title " enable setting title
 set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
 set ignorecase " ignore case when searching. :set noignore to disable
-set scrolloff=7 " start scrolling x lines before edge of viewport 
+set scrolloff=8 " start scrolling x lines before edge of viewport
 set tabstop=4 " Use 4 spaces instead of tabs
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 set softtabstop=4 " Tab look like they are 4 spaces
-set expandtab " On pressing tab insert 2 spaces
+set expandtab " On pressing tab insert 4 spaces
 " set scrollbind " When 2 windows are open, scroll is syncrhonized. :set noscrollbind to disable
 set splitbelow " When opening a pane vertically, opening it below
 set splitright " When opening a pane horizontally, opening it on the right
@@ -143,21 +144,21 @@ set statusline+=%#InsertColor#%{(mode()=='i')?'\ I\ ':''}
 set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ R\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ V\ ':''}
 set statusline+=%#PathColor#
-set statusline+=\ %<%.50F%m%r%h%w 
+set statusline+=\ %<%.50F%m%r%h%w
 set statusline+=\ [
-set statusline+=Type=%Y 
-set statusline+=,%{''.(&fenc!=''?&fenc:&enc).''} 
+set statusline+=Type=%Y
+set statusline+=,%{''.(&fenc!=''?&fenc:&enc).''}
 set statusline+=,Size=%{getfsize(expand('%'))} " File name up to 30 chars, modified, readonly, helpfile, preview
 set statusline+=,LastModif=%{strftime('%d/%m/%Y\ %H:%M:%S',getftime(expand('%')))} " Last modification time
-set statusline+=] 
+set statusline+=]
 set statusline+=%=
 set statusline+=%#BaseColor#
 "set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
 set statusline+=\ Cursor\ @\ %03c,%l/%L\ -\ (%p%%)
 set statusline+=\ [
-set statusline+=Hex=0x%02.2B 
-set statusline+=,ASCII=%03.3b 
-set statusline+=] 
+set statusline+=Hex=0x%02.2B
+set statusline+=,ASCII=%03.3b
+set statusline+=]
 
 hi NormalColor ctermbg=Blue ctermfg=Black cterm=bold
 hi PathColor ctermbg=Grey ctermfg=Black
@@ -170,4 +171,3 @@ hi Error ctermfg=Red guifg=Red
 
 " Resize vim when the window is resized
 autocmd VimResized * :wincmd =
-

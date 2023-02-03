@@ -71,6 +71,8 @@ alias hgcost='hg checkout fbobjc/stable'
 alias hgd='hg diff'
 alias hgtop='hg next --top'
 alias hgbutt='hg prev --bottom'
+## Python
+export PYTHONPATH="~/Developer/"
 ## Git
 git config --global alias.st status
 git config --global diff.tool vimdiff
