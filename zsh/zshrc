@@ -31,8 +31,18 @@ setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # Autocompletion
-autoload -Uz compinit; compinit
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
 _comp_options+=(globdots) # With hidden files
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -v '^?' backward-delete-char
+
 
 function csv {
     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$1" | column -t -s, | less  -F -S -X -K
@@ -54,7 +64,6 @@ alias so='source ~/.zshrc'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
-alias ssh1='ssh devvm2167.lla0.facebook.com'
 alias ap='arc pull'
 alias as='arc sanity'
 alias jfs='jf submit --draft'
@@ -71,12 +80,12 @@ alias hgcost='hg checkout fbobjc/stable'
 alias hgd='hg diff'
 alias hgtop='hg next --top'
 alias hgbutt='hg prev --bottom'
-## Python
-export PYTHONPATH="~/Developer/"
 ## Git
 git config --global alias.st status
 git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
+# Autocompletion
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ## FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules "
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --pointer · --color dark\

@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,vim
 
+# Nvim swapfiles and undo
+.undo/
+.swapfiles/
+
 ### macOS ###
 # General
 .DS_Store
