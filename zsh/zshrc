@@ -42,6 +42,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 # bindkey -v '^?' backward-delete-char
+bindkey -e # emacs key bindings
 
 
 function csv {
@@ -50,6 +51,7 @@ function csv {
 
 # Basic
 alias v='vim'
+alias n='nvim'
 alias b='bat --style=numbers --color=always --theme=OneHalfDark'
 alias t='tmux'
 alias ts='date "+%s"'
@@ -89,8 +91,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ## FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules "
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --pointer · --color dark\
-	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always --theme=OneHalfDark {} || cat {}) 2> /dev/null | head -300'\
-	--preview-window='right:wrap' \
+	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always --wrap=never --theme=OneHalfDark {} || cat {}) 2> /dev/null | head -300'\
+	--preview-window='right:nowrap' \
 	--bind='f3:execute(bat --style=numbers --color=always --theme=OneHalfDark {} || less -f {}),ctrl-b:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort'"
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd --type f $FD_OPTIONS -E '*.xcodeproj' -E '*.appiconset' -E '*.localized' $FZF_CTRL_T_COMMAND_DIRECTORIES"

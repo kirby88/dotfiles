@@ -25,7 +25,7 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'bluz71/vim-nightfly-guicolors'
+  -- use 'bluz71/vim-nightfly-guicolors'
   use "nvim-lua/plenary.nvim" -- Offers async mechanism to other plugins
   use "nvim-tree/nvim-tree.lua" -- file explorer 
   use 'nvim-tree/nvim-web-devicons' -- icon for file explorer

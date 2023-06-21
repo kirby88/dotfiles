@@ -24,7 +24,7 @@ opt.smartcase = true -- When searching (/), automatically switch to a case-sensi
 opt.ignorecase = true -- ignore case when searching. :set noignore to disable
 
 -- Swap files
-opt.directory = ".swapfiles/" -- Automatically created if it doesn't exists
+opt.directory = "/tmp/.swapfiles/" -- Automatically created if it doesn't exists
 opt.swapfile = true -- create swap file in directory
 
 -- List of chars and line wraps
@@ -36,7 +36,7 @@ opt.wrap = true -- Wrap the line if too long
 
 -- Title
 opt.title = true
-opt.titlestring = "⚜️  nvim %t%r%m"
+opt.titlestring = "✏️ %t%r%m"
 
 -- Tabs and indentation
 opt.tabstop = 4 -- Use 4 spaces instead of tab
@@ -51,7 +51,7 @@ opt.splitbelow = true --  When opening a pane vertically, opening it below
 opt.splitright = true -- When opening a pane horizontally, opening it on the right
 
 -- Undo
-opt.undodir = ".undo/"
+opt.undodir = "/tmp/.undo/"
 opt.undofile = true -- Undo is stored in a file so it can be restored after closing vim
 
 -- Appearance

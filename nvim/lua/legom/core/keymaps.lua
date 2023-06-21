@@ -21,14 +21,15 @@ km.set("n","<leader>8",":b8<CR>")
 km.set("n","<leader>9",":b9<CR>")
 
 -- Shortcut to windows
-km.set("n","<leader>t",":FZF<CR>")
+km.set("n","<leader>t",":FZF ~/Developer/<CR>")
+km.set("n","<leader>w","<c-w>")
 
 -- Resize windows
 km.set("n","<leader>+",":wincmd _<CR>:wincmd |<CR>")
 km.set("n","<leader>=",":wincmd =<CR>")
 
 -- netrw mappings
--- km.set("n", "<leader>f",":Lexplore<CR>")
-km.set("n", "<leader>f",":NvimTreeToggle<CR>")
+km.set("n", "<leader>f",":Lexplore<CR>")
+--km.set("n", "<leader>f",":NvimTreeToggle<CR>")
 
 vim.opt.runtimepath:append(",/opt/homebrew/opt/fzf")
