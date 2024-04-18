@@ -2,12 +2,6 @@ export CLICOLORS=1;
 export EDITOR=vim
 export VISUAL=vim
 
-## Source machine specific code
-if [[ -f ~/.zshrc_local ]]
-then
-    source ~/.zshrc_local
-fi
-
 start=0
 precmd() {
   if [ $start -eq 0 ]
@@ -16,38 +10,45 @@ precmd() {
     PROMPT=""
     else
     end=$(date "+%s")
-    PROMPT="%F{black}%(?.%K{green} √.%K{red} ×) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
+    PROMPT="%F{black}%(?.%K{green} ✅.%K{red} ❌) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
   fi
   PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
 }
+RPROMPT="%D{%d/%m/%Y %H:%M:%S (%s)}"
+
 preexec () {
   start=$(date "+%s")
 }
 # RPROMPT='%W %*' # Display date and time on the right
+
+# pyenv installation
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Directory stack cf. https://thevaluable.dev/zsh-install-configure/
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
-# Autocompletion
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) # With hidden files
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -v '^?' backward-delete-char
-bindkey -e # emacs key bindings
+    # Autocompletion
+    autoload -U compinit
+    zstyle ':completion:*' menu select
+    zmodload zsh/complist
+    compinit
+    _comp_options+=(globdots) # With hidden files
+    # Use vim keys in tab complete menu:
+    bindkey -M menuselect 'h' vi-backward-char
+    bindkey -M menuselect 'k' vi-up-line-or-history
+    bindkey -M menuselect 'l' vi-forward-char
+    bindkey -M menuselect 'j' vi-down-line-or-history
+    # bindkey -v '^?' backward-delete-char
+    bindkey -e # emacs key bindings
 
 
-function csv {
-    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$1" | column -t -s, | less  -F -S -X -K
-}
+    function csv {
+        perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$1" | column -t -s, | less  -F -S -X -K
+    }
 
 # Basic
 alias v='vim'
@@ -59,10 +60,12 @@ alias ll='ls -alsG'
 alias ls='ls -G'
 alias cd..='cd ..'
 alias stree='tree -alL 2 -I ".git|.hg|.DS_Store" --filelimit 10'
-alias py='python3'
-alias pyi='python3 -i'
+alias py='python'
+alias pyi='python -i'
+alias pyt='py -m unittest discover -s __tests__'
 alias d='dirs -v'
 alias so='source ~/.zshrc'
+alias act='source env/bin/activate'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'
@@ -99,3 +102,9 @@ export FZF_CTRL_T_COMMAND="fd --type f $FD_OPTIONS -E '*.xcodeproj' -E '*.appico
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
+
+## Source machine specific code
+if [[ -f ~/.zshrc_local ]]
+then
+    source ~/.zshrc_local
+fi

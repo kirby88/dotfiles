@@ -3,8 +3,7 @@ local km = vim.keymap
 vim.g.mapleader = " "
 
 -- General mapping 
--- On iTerm 2, Tab is mapped to ESC (hex code 0x1B)
--- On macOS X, capslock is mapped to CTRL
+-- On macOS X, capslock is mapped to ESC
 km.set("n","<leader>nh",":nohl<CR>") -- Clear search highlights
 km.set("n","<leader>q",":qa<CR>") -- Quit all buffers
 
