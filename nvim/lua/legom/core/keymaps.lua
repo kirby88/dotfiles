@@ -31,4 +31,7 @@ km.set("n","<leader>=",":wincmd =<CR>")
 km.set("n", "<leader>f",":Lexplore<CR>")
 --km.set("n", "<leader>f",":NvimTreeToggle<CR>")
 
+-- Others
+km.set("n", "<leader>p",":pu<CR>")
+
 vim.opt.runtimepath:append(",/opt/homebrew/opt/fzf")

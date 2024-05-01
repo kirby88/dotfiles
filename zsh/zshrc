@@ -1,23 +1,23 @@
 export CLICOLORS=1;
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
-start=0
+print "\n##############\n## Welcome ##\n#############\n"
+
+first=0
 precmd() {
-  if [ $start -eq 0 ]
+  if [ $first -eq 0 ]
     then
-    echo "\n\n##############\n## Welcome ##\n#############\n\n"
     PROMPT=""
+    first=1
     else
-    end=$(date "+%s")
-    PROMPT="%F{black}%(?.%K{green} ✅.%K{red} ❌) $((end-start))s.%(?. %k.| Exit code: %? %k)%f"$'\n'
+    PROMPT="%F{black}%(?.%K{green} ✅.%K{red} ❌) %(?.%k. Exit code %? %k)%f"$'\n\n'
   fi
   PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
 }
-RPROMPT="%D{%d/%m/%Y %H:%M:%S (%s)}"
+RPROMPT="%D{%d/%m/%Y %H:%M:%S}"
 
 preexec () {
-  start=$(date "+%s")
 }
 # RPROMPT='%W %*' # Display date and time on the right
 
@@ -31,66 +31,25 @@ setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
-    # Autocompletion
-    autoload -U compinit
-    zstyle ':completion:*' menu select
-    zmodload zsh/complist
-    compinit
-    _comp_options+=(globdots) # With hidden files
-    # Use vim keys in tab complete menu:
-    bindkey -M menuselect 'h' vi-backward-char
-    bindkey -M menuselect 'k' vi-up-line-or-history
-    bindkey -M menuselect 'l' vi-forward-char
-    bindkey -M menuselect 'j' vi-down-line-or-history
-    # bindkey -v '^?' backward-delete-char
-    bindkey -e # emacs key bindings
-
-
-    function csv {
-        perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$1" | column -t -s, | less  -F -S -X -K
-    }
-
-# Basic
-alias v='vim'
-alias n='nvim'
-alias b='bat --style=numbers --color=always --theme=OneHalfDark'
-alias t='tmux'
-alias ts='date "+%s"'
-alias ll='ls -alsG'
-alias ls='ls -G'
-alias cd..='cd ..'
-alias stree='tree -alL 2 -I ".git|.hg|.DS_Store" --filelimit 10'
-alias py='python'
-alias pyi='python -i'
-alias pyt='py -m unittest discover -s __tests__'
-alias d='dirs -v'
-alias so='source ~/.zshrc'
-alias act='source env/bin/activate'
-# Facebok stuff
-alias cdo='cd ~/fbsource/fbobjc/'
-alias cdx='cd ~/fbsource/xplat/'
-alias ap='arc pull'
-alias as='arc sanity'
-alias jfs='jf submit --draft'
-alias jfss='jf submit --draft --stack'
-alias lint='arc lint -e extra --take DEPS'
-# Mercurial
-alias hgst='hg status'
-alias hgsl='hg sl'
-alias hgar='hg addremove'
-alias hga='hg amend'
-alias hgc='hg commit'
-alias hgco='hg checkout'
-alias hgcost='hg checkout fbobjc/stable'
-alias hgd='hg diff'
-alias hgtop='hg next --top'
-alias hgbutt='hg prev --bottom'
-## Git
-git config --global alias.st status
-git config --global diff.tool vimdiff
-git config --global merge.tool vimdiff
 # Autocompletion
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # With hidden files
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -v '^?' backward-delete-char
+bindkey -e # emacs key bindings
+# bindkey -v # vim key bindings
+
+function csv {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$1" | column -t -s, | less  -F -S -X -K
+}
+
 ## FZF
 FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules "
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --pointer · --color dark\
@@ -104,7 +63,45 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 
 ## Source machine specific code
-if [[ -f ~/.zshrc_local ]]
+if [ -f ~/.zshrc_local.zsh ]
 then
-    source ~/.zshrc_local
+    source ~/.zshrc_local.zsh
+    print "✅ ~/.zsh/local.zsh found"
+else
+    print "❌ ~/.zsh/local.zsh not found"
 fi
+
+# Source aliases
+if [ -f ~/.zsh/aliases.zsh ]; then
+    source ~/.zsh/aliases.zsh
+    print "✅ ~/.zsh/aliases.zsh found"
+else
+    print "❌ ~/.zsh/aliases.zsh not found"
+fi
+
+# Autocompletion
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    print "✅ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh found"
+else
+    print "❌ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh not found"
+fi
+
+# Interactive CD
+if [ -f ~/.zsh/zsh-interactive-cd.plugin.zsh ]; then
+    source ~/.zsh/zsh-interactive-cd.plugin.zsh
+    print "✅ ~/.zsh/zsh-interactive-cd.plugin.zsh found"
+else
+    print "❌ ~/.zsh/zsh-interactive-cd.plugin.zsh not found"
+fi
+
+# Timer 
+if [ -f ~/.zsh/timer.plugin.zsh ]; then
+    source ~/.zsh/timer.plugin.zsh
+    TIMER_FORMAT='[%d]'; TIMER_PRECISION=2 
+    print "✅ ~/.zsh/timer.plugin.zsh found"
+else
+    print "❌ ~/.zsh/timer.plugin.zsh not found"
+fi
+print "\n"
+
