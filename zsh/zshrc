@@ -6,6 +6,7 @@ print "\n##############\n## Welcome ##\n#############\n"
 
 first=0
 precmd() {
+  print "main"
   if [ $first -eq 0 ]
     then
     PROMPT=""
@@ -80,19 +81,11 @@ else
 fi
 
 # Autocompletion
-if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-    print "✅ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh found"
+if [ -f ~/.zsh/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions.zsh
+    print "✅ ~/.zsh/zsh-autosuggestions.zsh found"
 else
-    print "❌ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh not found"
-fi
-
-# Interactive CD
-if [ -f ~/.zsh/zsh-interactive-cd.plugin.zsh ]; then
-    source ~/.zsh/zsh-interactive-cd.plugin.zsh
-    print "✅ ~/.zsh/zsh-interactive-cd.plugin.zsh found"
-else
-    print "❌ ~/.zsh/zsh-interactive-cd.plugin.zsh not found"
+    print "❌ ~/.zsh/zsh-autosuggestions.zsh not found"
 fi
 
 # Timer 
@@ -102,6 +95,14 @@ if [ -f ~/.zsh/timer.plugin.zsh ]; then
     print "✅ ~/.zsh/timer.plugin.zsh found"
 else
     print "❌ ~/.zsh/timer.plugin.zsh not found"
+fi
+
+# Syntax highlighting 
+if [ -f ~/.zsh/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting.zsh
+    print "✅ ~/.zsh/zsh-syntax-highlighting.zsh"
+else
+    print "❌ ~/.zsh/zsh-syntax-highlighting.zsh"
 fi
 print "\n"
 
