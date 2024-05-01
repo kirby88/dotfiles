@@ -4,23 +4,10 @@ export VISUAL=nvim
 
 print "\n##############\n## Welcome ##\n#############\n"
 
-first=0
 precmd() {
-  print "main"
-  if [ $first -eq 0 ]
-    then
-    PROMPT=""
-    first=1
-    else
-    PROMPT="%F{black}%(?.%K{green} ✅.%K{red} ❌) %(?.%k. Exit code %? %k)%f"$'\n\n'
-  fi
-  PROMPT+="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
+  PROMPT="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
 }
-RPROMPT="%D{%d/%m/%Y %H:%M:%S}"
-
-preexec () {
-}
-# RPROMPT='%W %*' # Display date and time on the right
+RPROMPT="%D{%d/%m/%Y %H:%M:%S}" # Display date and time on the right
 
 # pyenv installation
 export PYENV_ROOT="$HOME/.pyenv"
@@ -105,4 +92,21 @@ else
     print "❌ ~/.zsh/zsh-syntax-highlighting.zsh"
 fi
 print "\n"
+
+# Exit code to display, to load after the timer
+__exit_code_precmd() {
+    result=$(echo $?)
+    if [ $result -eq 0 ]; then
+        local cols=$((COLUMNS - ${#tdiffstr} - 3))
+        echo -e "✅\033[${cols}C ${tdiffstr}"
+    else
+        local cols=$((COLUMNS - ${#tdiffstr} - 14 - ${#result}))
+        echo -e "\033[31m❌ Exit code ${result}\033[0m\033[${cols}C ${tdiffstr}"
+    fi
+  #echo -e "%F{black}%(?.%K{green} ✅.%K{red} ❌) ${tdiffstr} %(?.%k. Exit code %? %k)%f"$'\n\n'
+  print ""
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd __exit_code_precmd
 
