@@ -91,7 +91,16 @@ if [ -f ~/.zsh/zsh-syntax-highlighting.zsh ]; then
 else
     print "❌ ~/.zsh/zsh-syntax-highlighting.zsh"
 fi
-print "\n"
+
+# Fast file
+if [ -f ~/.zsh/fastfile.plugin.zsh ]; then
+    source ~/.zsh/fastfile.plugin.zsh
+    print "✅ ~/.zsh/fastfile.plugin.zsh"
+else
+    print "❌ ~/.zsh/fastfile.plugin.zsh"
+fi
+
+print ""
 
 # Exit code to display, to load after the timer
 __exit_code_precmd() {
@@ -99,9 +108,11 @@ __exit_code_precmd() {
     if [ $result -eq 0 ]; then
         local cols=$((COLUMNS - ${#tdiffstr} - 3))
         echo -e "✅\033[${cols}C ${tdiffstr}"
+        #echo -e "\033[42m\033[30m ✅$(printf '%*s' ${cols}) ${tdiffstr}\033[0m"
     else
         local cols=$((COLUMNS - ${#tdiffstr} - 14 - ${#result}))
         echo -e "\033[31m❌ Exit code ${result}\033[0m\033[${cols}C ${tdiffstr}"
+        #echo -e "\033[41m ❌ Exit code ${result}$(printf '%*s' ${cols}) ${tdiffstr}\033[0m"
     fi
   #echo -e "%F{black}%(?.%K{green} ✅.%K{red} ❌) ${tdiffstr} %(?.%k. Exit code %? %k)%f"$'\n\n'
   print ""
