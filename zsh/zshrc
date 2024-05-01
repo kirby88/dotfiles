@@ -51,12 +51,12 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 
 ## Source machine specific code
-if [ -f ~/.zshrc_local.zsh ]
+if [ -f ~/.zsh/zsh-local.zsh ]
 then
-    source ~/.zshrc_local.zsh
-    print "✅ ~/.zsh/local.zsh found"
+    source ~/.zsh/zsh-local.zsh
+    print "✅ ~/.zsh/zsh-local.zsh found"
 else
-    print "❌ ~/.zsh/local.zsh not found"
+    print "❌ ~/.zsh/zsh-local.zsh not found"
 fi
 
 # Source aliases
@@ -68,11 +68,11 @@ else
 fi
 
 # Autocompletion
-if [ -f ~/.zsh/zsh-autosuggestions.zsh ]; then
-    source ~/.zsh/zsh-autosuggestions.zsh
-    print "✅ ~/.zsh/zsh-autosuggestions.zsh found"
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    print "✅ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh found"
 else
-    print "❌ ~/.zsh/zsh-autosuggestions.zsh not found"
+    print "❌ ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh not found"
 fi
 
 # Timer 
@@ -85,11 +85,11 @@ else
 fi
 
 # Syntax highlighting 
-if [ -f ~/.zsh/zsh-syntax-highlighting.zsh ]; then
-    source ~/.zsh/zsh-syntax-highlighting.zsh
-    print "✅ ~/.zsh/zsh-syntax-highlighting.zsh"
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    print "✅ ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 else
-    print "❌ ~/.zsh/zsh-syntax-highlighting.zsh"
+    print "❌ ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # Fast file
