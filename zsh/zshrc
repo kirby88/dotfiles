@@ -5,7 +5,7 @@ export VISUAL=nvim
 print "\n##############\n## Welcome ##\n#############\n"
 
 precmd() {
-  PROMPT="%F{blue}%B%~%b%f"$'\n'"%F{white}%B$%b%f "
+  PROMPT="%F{blue}%B%~%b%f"$'\n'"%B$%b "
 }
 RPROMPT="%D{%d/%m/%Y %H:%M:%S}" # Display date and time on the right
 
