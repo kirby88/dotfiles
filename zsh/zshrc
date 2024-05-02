@@ -61,6 +61,7 @@ export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --inline-info --po
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd --type f $FD_OPTIONS -E '*.xcodeproj' -E '*.appiconset' -E '*.localized' $FZF_CTRL_T_COMMAND_DIRECTORIES"
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 
 ## Source machine specific code
@@ -111,14 +112,6 @@ if [ -f ~/.zsh/fastfile.plugin.zsh ]; then
     print "✅ ~/.zsh/fastfile.plugin.zsh"
 else
     print "❌ ~/.zsh/fastfile.plugin.zsh"
-fi
-
-# FZF
-if [ -f ~/.zsh/fzf.zsh ]; then
-    source ~/.zsh/fzf.zsh
-    print "✅ ~/.zsh/fzf.zsh"
-else
-    print "❌ ~/.zsh/fzf.zsh"
 fi
 
 print ""
