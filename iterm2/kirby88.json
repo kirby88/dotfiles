@@ -1,5 +1,11 @@
 {
-  "Thin Strokes" : 0,
+  "Ansi 5 Color" : {
+    "Red Component" : 0.77647058823500004,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.86666666666699999,
+    "Alpha Component" : 1,
+    "Green Component" : 0.47058823529400001
+  },
   "Working Directory" : "\/Users\/jul",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -35,7 +41,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.30588235294100002
   },
-  "Mouse Reporting" : true,
+  "Mouse Reporting" : false,
   "Cursor Boost" : 0,
   "Ansi 4 Color" : {
     "Red Component" : 0.38039215686299999,
@@ -64,14 +70,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.90000000000000002,
               "Color Space" : "sRGB",
               "Blue Component" : 0.63,
               "Alpha Component" : 1,
               "Green Component" : 0.63
-            }
+            },
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -83,9 +89,8 @@
         "class" : "iTermStatusBarJobComponent",
         "configuration" : {
           "knobs" : {
-            "maxwidth" : 1.7976931348623157e+308,
+            "base: compression resistance" : 1,
             "base: priority" : 5,
-            "minwidth" : 0,
             "shared text color" : {
               "Red Component" : 0.84599999999999997,
               "Color Space" : "sRGB",
@@ -93,7 +98,8 @@
               "Alpha Component" : 1,
               "Green Component" : 0.90000000000000002
             },
-            "base: compression resistance" : 1
+            "minwidth" : 0,
+            "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
             "algorithm" : 0
@@ -105,14 +111,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.63,
               "Color Space" : "sRGB",
               "Blue Component" : 0.7380000000000001,
               "Alpha Component" : 1,
               "Green Component" : 0.90000000000000002
-            }
+            },
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -125,14 +131,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.63,
               "Color Space" : "sRGB",
               "Blue Component" : 0.90000000000000002,
               "Alpha Component" : 1,
               "Green Component" : 0.73799999999999988
-            }
+            },
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "algorithm" : 0
@@ -144,14 +150,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.8460000000000002,
               "Color Space" : "sRGB",
               "Blue Component" : 0.90000000000000002,
               "Alpha Component" : 1,
               "Green Component" : 0.63
-            }
+            },
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "algorithm" : 0
@@ -277,11 +283,11 @@
     "Green Component" : 0.76470588235299997
   },
   "Ansi 8 Color" : {
-    "Red Component" : 0.53842745209112763,
+    "Red Component" : 0.15686274509799999,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.623687744140625,
+    "Blue Component" : 0.203921568627,
     "Alpha Component" : 1,
-    "Green Component" : 0.56684754944096016
+    "Green Component" : 0.17254901960800001
   },
   "Badge Color" : {
     "Red Component" : 1,
@@ -303,8 +309,8 @@
   },
   "AWDS Pane Directory" : "",
   "Blur" : true,
-  "Normal Font" : "HackNerdFontComplete-Regular 16",
-  "Vertical Spacing" : 1.2,
+  "Vertical Spacing" : 1,
+  "Normal Font" : "RobotoMonoNFM-Rg 16",
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
     "Red Component" : 0.86274509803900001,
@@ -360,12 +366,6 @@
   "Columns" : 80,
   "Visual Bell" : true,
   "Custom Directory" : "No",
-  "ASCII Ligatures" : false,
-  "Ansi 5 Color" : {
-    "Red Component" : 0.77647058823500004,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.86666666666699999,
-    "Alpha Component" : 1,
-    "Green Component" : 0.47058823529400001
-  }
+  "Thin Strokes" : 0,
+  "ASCII Ligatures" : false
 }
