@@ -1,13 +1,32 @@
-local setup, nvimtree = pcall(require, "nvim-tree")
-if not setup then
-    return
-end
+return {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+        local nvimtree = require("nvim-tree")
+        
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
 
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
+        nvimtree.setup({
+          sort = {
+            sorter = "case_sensitive",
+          },
+          view = {
+            width = 30,
+          },
+          renderer = {
+            group_empty = true,
+          },
+          filters = {
+            dotfiles = false,
+          },
+        })
 
-nvimtree.setup()
+        local keymap = vim.keymap
 
-vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
-vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)
-vim.keymap.set("n", "<leader>ms", require("nvim-tree.api").marks.navigate.select)
+        keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
+        keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
+        keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
+        keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+    end
+}
