@@ -7,7 +7,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-require("lazy").setup("legom.plugins")
+require("lazy").setup({{ import = "legom.plugins"}, {import = "legom.plugins.lsp"}})
 --require("lazy").setup({
 --	spec = {
 		-- add LazyVim and import its plugins
