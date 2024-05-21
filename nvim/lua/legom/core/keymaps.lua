@@ -6,32 +6,26 @@ vim.g.mapleader = " "
 -- On macOS X, capslock is mapped to ESC
 km.set("n","<leader>nh",":nohl<CR>") -- Clear search highlights
 km.set("n","<leader>q",":qa<CR>") -- Quit all buffers
+km.set("n","<leader>s",":w<CR>") -- Quit all buffers
 
--- Buffer
-km.set("n","<leader>0",":buffers<CR>")
-km.set("n","<leader>1",":b1<CR>")
-km.set("n","<leader>2",":b2<CR>")
-km.set("n","<leader>3",":b3<CR>")
-km.set("n","<leader>4",":b4<CR>")
-km.set("n","<leader>5",":b5<CR>")
-km.set("n","<leader>6",":b6<CR>")
-km.set("n","<leader>7",":b7<CR>")
-km.set("n","<leader>8",":b8<CR>")
-km.set("n","<leader>9",":b9<CR>")
-
--- Shortcut to windows
--- km.set("n","<leader>t",":FZF ~/Developer/<CR>")
-km.set("n","<leader>w","<c-w>")
+-- Tabs
+km.set("n","<leader>t",":tabnew<CR>")
+km.set("n","<leader>w",":tabclose<CR>")
+km.set("n","<leader>1","1gt<CR>")
+km.set("n","<leader>2","2gt<CR>")
+km.set("n","<leader>3","3gt<CR>")
+km.set("n","<leader>4","4gt<CR>")
+km.set("n","<leader>5","5gt<CR>")
+km.set("n","<leader>6","6gt<CR>")
+km.set("n","<leader>7","7gt<CR>")
+km.set("n","<leader>8","8gt<CR>")
+km.set("n","<leader>9","9gt<CR>")
 
 -- Resize windows
 km.set("n","<leader>+",":wincmd _<CR>:wincmd |<CR>")
 km.set("n","<leader>=",":wincmd =<CR>")
 
--- netrw mappings
--- km.set("n", "<leader>f",":Lexplore<CR>")
--- km.set("n", "<leader>f",":NvimTreeToggle<CR>")
 
 -- Others
-km.set("n", "<leader>p",":pu<CR>")
+km.set("n", "<leader>p",":pu<CR>") -- Past above
 
--- vim.opt.rtp:append("/opt/homebrew/opt/fzf")

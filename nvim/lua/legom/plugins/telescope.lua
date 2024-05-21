@@ -26,9 +26,8 @@ return {
         telescope.load_extension("fzf")         
         local km = vim.keymap
 
-        km.set('n', '<leader>ff', "<cmd>Telescope find_files<CR>", {})           
-        km.set('n', '<leader>fr', "<cmd>Telescope oldfiles<CR>", {})
-        km.set('n', '<leader>fs', "<cmd>Telescope live_grep<CR>", {})
-        km.set('n', '<leader>fc', "<cmd>Telescope grep_string<CR>", {})
+        km.set('n', '<leader>of', "<cmd>Telescope find_files<CR>", {})           
+        km.set('n', '<leader>os', "<cmd>Telescope live_grep<CR>", {})
+        km.set('n', '<leader>ow', "<cmd>Telescope grep_string<CR>", {})
     end
 }
