@@ -1,6 +1,0 @@
-In macos, remap capslock to ctrl. In vim, tab is already remaped to escape.
-This is to have everything close to the home row as the vi creator had (cf. https://medium.com/@pechyonkin/how-to-map-capslock-to-control-and-escape-on-mac-60523a64022b)
-
-Only have one vim per session, and let vim handle buffer and or panes, that will be way easier to copy from one buffer to another.
-
-
