@@ -1,0 +1,173 @@
+" Kirby88 .vimrc
+
+" When a .vimrc is found, this option automatically set
+" but if shared, then compatible mode is on.
+" Compatible means compatible with vi and disable new features
+set nocompatible
+
+syntax on
+filetype plugin indent on " Enable filetype, plugin and indentatio at once.
+set omnifunc=syntaxcomplete#Complete
+
+set backspace=eol " HARD MODE: only delete what was inserted in this session
+
+" Use a line cursor within insert mode and a block cursor everywhere else.
+"
+" Using iTerm2? Go-to preferences / profile / colors and disable the smart bar
+" cursor color. Then pick a cursor and highlight color that matches your theme.
+" That will ensure your cursor is always visible within insert mode.
+"
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+
+" Editor configuration
+set number " Show current line number
+set relativenumber " Show relative numbers for other line
+set colorcolumn=80 " Set the column 120 in red
+set cursorline " Enable highlighting of the current line
+set cursorcolumn " Enable highlighting of the current line
+set showmatch " Highlight matching brace
+set ai " Sets auto-indentation
+set si " Sets smart-indentation
+set hlsearch " When searching (/), highlights matches as you go
+set incsearch " When searching (/), display results as you type (instead of only upon ENTER)
+set smartcase " When searching (/), automatically switch to a case-sensitive search if you use any capital letters
+set shortmess-=S " When searching (/) show nb of results for the search
+set noswapfile " Don't create swap file
+set ttyfast " Boost speed by altering character redraw rates to your terminal
+set encoding=utf8 " Set text encoding as utf8
+"set listchars=tab:_ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+"set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶,space:· " Set some nice character listings, then activate list
+set listchars=tab:▶\ ,trail:·,extends:>,precedes:<,nbsp:%,eol:¶ " Set some nice character listings, then activate list
+set list " Show all listchars
+set showbreak=↳\
+set breakindent " Will break line and keep indentation
+set wrap " Line will be broken of too long
+set title " enable setting title
+set titlestring=\ %-25.55F\ %a%r%m " configure title to look like: Vim /path/to/file
+set ignorecase " ignore case when searching. :set noignore to disable
+set scrolloff=8 " start scrolling x lines before edge of viewport
+set tabstop=4 " Use 4 spaces instead of tabs
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set softtabstop=4 " Tab look like they are 4 spaces
+set expandtab " On pressing tab insert 4 spaces
+" set scrollbind " When 2 windows are open, scroll is syncrhonized. :set noscrollbind to disable
+set splitbelow " When opening a pane vertically, opening it below
+set splitright " When opening a pane horizontally, opening it on the right
+" set autowriteall " Auto save a buffer when it's closed
+set showcmd " Show the cmd currently typed. Useful to see what was written already
+" Autocompletion when coding in insert mode Ctrl+N
+set complete+=kspell
+set completeopt=menuone,longest
+set undodir=/tmp
+set undofile " Undo is stored in a file so it can be restored after closing vim
+set spell
+" Navigation
+set path+=** " Search recursively under the current directory
+" Autocompletion
+set wildmenu " Allow autocompletion without plugin
+set wildmode=longest:full,full " Type of autocomplete close to fzf. :help wildmode
+set wildignorecase " Ignore case for autocomplete
+set wildignore=.git/,.DS_Store,.xcodeproj
+
+" use fzf
+set rtp+=/opt/homebrew/opt/fzf
+
+" Remap arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
+" Remap
+let mapleader = "\<space>"
+nnoremap <leader>e :edit **/*
+nnoremap <leader>r :source $MYVIMRC<cr>
+nnoremap <leader>l :set list!<cr>
+nnoremap <leader>f :FZF<cr>
+"nnoremap <leader>s :w<cr>
+"nnoremap <leader>q :q<cr>
+nnoremap <leader>1 :b1<cr>
+nnoremap <leader>2 :b2<cr>
+nnoremap <leader>3 :b3<cr>
+nnoremap <leader>4 :b4<cr>
+nnoremap <leader>5 :b5<cr>
+nnoremap <leader>6 :b6<cr>
+nnoremap <leader>7 :b7<cr>
+nnoremap <leader>8 :b8<cr>
+nnoremap <leader>9 :b9<cr>
+nnoremap <leader>w <c-w>
+" Omnifunc
+inoremap <c-a> <c-x><c-o>
+inoremap <c-f> <c-x><c-f>
+
+" The 3 after are shortcut that can be achieved with <leader>w
+nnoremap <leader>v <c-w>v
+nnoremap <leader>s <c-w>s
+nnoremap <leader>x <c-w>q
+" Command to zoom in one pane in vim and back
+nnoremap <leader>+ :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+" Remap Tab to ESC, but not in normal mode to allow ctrl-o and ctrl-i
+" cf. https://vim.fandom.com/wiki/Avoid_the_escape_key#Tab_key_under_Mac_OS_X
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+inoremap <Tab> <Esc>`^
+inoremap <c-t> <Tab>
+
+" Theme and Styling
+set t_Co=256
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" colorscheme onehalflight
+colorscheme onehalfdark
+
+" Status line
+set laststatus=2 " Show the status at the bottom (filename). 2 means always show it
+set statusline=%#BaseColor#
+set statusline+=\ [%n]\ |
+set statusline+=%#NormalColor#%{(mode()=='n')?'\ N\ ':''}
+set statusline+=%#InsertColor#%{(mode()=='i')?'\ I\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ R\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'\ V\ ':''}
+set statusline+=%#PathColor#
+set statusline+=\ %<%.50F%m%r%h%w
+set statusline+=\ [
+set statusline+=Type=%Y
+set statusline+=,%{''.(&fenc!=''?&fenc:&enc).''}
+set statusline+=,Size=%{getfsize(expand('%'))} " File name up to 30 chars, modified, readonly, helpfile, preview
+set statusline+=,LastModif=%{strftime('%d/%m/%Y\ %H:%M:%S',getftime(expand('%')))} " Last modification time
+set statusline+=]
+set statusline+=%=
+set statusline+=%#BaseColor#
+"set statusline+=\ Line:\ %l/%L\ (%p%%)\ -\ Column:\ %c\ |
+set statusline+=\ Cursor\ @\ %03c,%l/%L\ -\ (%p%%)
+set statusline+=\ [
+set statusline+=Hex=0x%02.2B
+set statusline+=,ASCII=%03.3b
+set statusline+=]
+
+hi NormalColor ctermbg=Blue ctermfg=Black cterm=bold
+hi PathColor ctermbg=Grey ctermfg=Black
+hi BaseColor ctermbg=Black ctermfg=White
+hi InsertColor ctermbg=Green ctermfg=Black cterm=bold
+hi ReplaceColor ctermbg=Red ctermfg=Black cterm=bold
+hi VisualColor ctermbg=Red ctermfg=Black cterm=bold
+hi LastColor ctermbg=Black ctermfg=Blue cterm=bold
+hi Error ctermfg=Red guifg=Red
+
+" Resize vim when the window is resized
+autocmd VimResized * :wincmd =
