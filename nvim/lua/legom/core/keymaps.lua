@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 -- General mapping 
 -- On macOS X, capslock is mapped to ESC
 km.set("n","<leader>nh",":nohl<CR>") -- Clear search highlights
-km.set("n","<leader>q",":qa<CR>") -- Quit all buffers
+km.set("n","<leader>q",":qa!<CR>") -- Quit all buffers
 km.set("n","<leader>s",":w<CR>") -- Quit all buffers
 
 -- Tabs
@@ -22,7 +22,7 @@ km.set("n","<leader>8","8gt<CR>")
 km.set("n","<leader>9","9gt<CR>")
 
 -- Resize windows
-km.set("n","<leader>+",":wincmd _<CR>:wincmd |<CR>")
+km.set("n","<c-+>",":wincmd _<CR>:wincmd |<CR>")
 km.set("n","<leader>=",":wincmd =<CR>")
 
 

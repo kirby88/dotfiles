@@ -13,7 +13,7 @@ opt.relativenumber = true   -- Show current line number
 opt.number = true           -- Show relative numbers for other line
 
 -- Visual line and columns
-opt.colorcolumn = "120"     -- Set the column 120 in red
+opt.colorcolumn = "80"     -- Set the column 120 in red
 opt.cursorline = true       -- Enable highlighting of the current line
 opt.cursorcolumn = true     -- Enable highlighting of the current column
 
@@ -60,7 +60,7 @@ opt.background = "dark"     -- Dark theme
 opt.signcolumn = "yes"      -- This is to add a column for sign, things like a debugger that needs to display additional info to the user
 
 -- Clipboard
-opt.clipboard:append("unnamedplus") -- Use the system clipboard when copying
+-- opt.clipboard:append("unnamedplus") -- Use the system clipboard when copying
 
 -- Netrw
 vim.g.netrw_winsize = 25    -- 25% of the window

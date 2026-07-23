@@ -22,6 +22,7 @@ return {
           },
         })
 
-
+        local keymap = vim.keymap
+        keymap.set("n", "<leader>f", "<cmd>NvimTreeToggle<CR>")
     end
 }

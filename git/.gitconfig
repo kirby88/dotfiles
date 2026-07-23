@@ -1,7 +1,7 @@
 [alias]
 	st = status
 [difftool]
-    prompt = true
+	prompt = false
 [diff]
 	tool = nvimdiff
 [merge]
@@ -11,3 +11,16 @@
 [user]
 	email = kirby88@pm.me
 	name = Jul
+	signingkey = 2BC4A85476CC7689
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[tag]
+	gpgsign = true
+[safe]
+	directory = /Users/julien/Developer/vix
+[core]
+	excludesFile = /Users/julien/.config/git/ignore

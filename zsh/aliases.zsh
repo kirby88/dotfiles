@@ -13,7 +13,7 @@ alias pyi='python -i'
 alias pyt='py -m unittest discover -s __tests__'
 alias d='dirs -v'
 alias so='source ~/.zshrc'
-alias act='source env/bin/activate'
+alias act='source .venv/bin/activate'
 # Facebok stuff
 alias cdo='cd ~/fbsource/fbobjc/'
 alias cdx='cd ~/fbsource/xplat/'

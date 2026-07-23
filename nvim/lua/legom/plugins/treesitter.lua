@@ -3,6 +3,7 @@ return {
     event = {"BufReadPre", "BufNewFile"},
     build = ":TSUpdate",
     dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects'
     },
     config = function()
         local treesitter = require("nvim-treesitter.configs")
@@ -35,7 +36,20 @@ return {
                 "sql",
                 "swift",
                 "yaml",
-            }
+            },
+            textobjects = {
+                select = {
+                  enable = true,
+                  lookahead = true,
+                  keymaps = {
+                    -- You can use the capture groups defined in textobjects.scm
+                    ['af'] = '@function.outer',
+                    ['if'] = '@function.inner',
+                    ['ac'] = '@class.outer',
+                    ['ic'] = '@class.inner',
+                  },
+                },
+            },
         })
     end
 }
